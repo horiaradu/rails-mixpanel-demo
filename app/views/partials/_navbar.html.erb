@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+  <ul id="navbar-user-menu" class="dropdown-content">
+    <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    </li>
+  </ul>
+<% end %>
+<nav>
+  <div class="nav-wrapper">
+    <div>
+      <a href="<%= root_path %>" class="brand-logo"><img src="<%= image_path('logo.png') %>"></a>
+    </div>
+    <ul class="right">
+      <% if user_signed_in? %>
+        <li>
+          <a href="javascript:;" id="navbar-user-menu-button" data-activates="navbar-user-menu" class="dropdown-button">
+            <%= current_user.email %>
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to('Login', new_user_session_path) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

@@ -63,3 +63,5 @@ gem 'devise'
 gem 'mixpanel-ruby'
 
 gem 'dotenv-rails', '>= 2.2.0'
+
+gem 'gaffe', '>= 1.2.0'

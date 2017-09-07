@@ -12,6 +12,10 @@ class MixpanelService
     @tracker&.track(@user_id, 'Login')
   end
 
+  def on_error(error, status_code, request_id)
+    @tracker&.track(@user_id, 'Error', error.except(:backtrace).merge(code: status_code, request_id: request_id))
+  end
+
   private
 
   def user_properties
